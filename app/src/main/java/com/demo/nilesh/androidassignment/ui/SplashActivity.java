@@ -1,7 +1,9 @@
-package com.demo.nilesh.androidassignment;
+package com.demo.nilesh.androidassignment.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.demo.nilesh.androidassignment.R;
 
 public class SplashActivity extends AppCompatActivity {
 
