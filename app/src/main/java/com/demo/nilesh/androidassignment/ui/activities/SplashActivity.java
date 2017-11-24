@@ -7,6 +7,10 @@ import com.demo.nilesh.androidassignment.R;
 import com.demo.nilesh.androidassignment.ui.fragments.SplashFragment;
 import com.demo.nilesh.androidassignment.utility.Utils;
 
+/**
+ * Created by nilesh on 23/11/17.
+ */
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override

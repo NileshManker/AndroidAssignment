@@ -6,6 +6,10 @@ import com.demo.nilesh.androidassignment.R;
 import com.demo.nilesh.androidassignment.utility.Utils;
 
 
+/**
+ * Created by nilesh on 24/11/17.
+ */
+
 public class SplashFragment extends BaseFragment{
 
     private static int SPLASH_TIME_OUT = 3000;
@@ -26,7 +30,7 @@ public class SplashFragment extends BaseFragment{
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Utils.reuseFragmentWIthAnimation(R.id.frag_container, Utils.HOME, getActivity(), Utils.AnimationType.SLIDE_LEFT);
+                Utils.replaceFragmentWIthAnimation(R.id.frag_container, Utils.HOME, getActivity(), Utils.AnimationType.SLIDE_LEFT);
             }
         }, SPLASH_TIME_OUT);
     }

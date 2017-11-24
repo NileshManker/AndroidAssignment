@@ -9,13 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.demo.nilesh.androidassignment.R;
-import com.demo.nilesh.androidassignment.utility.Utils;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+
 /**
+ * Created by nilesh on 24/11/17.
  * Base fragment created to be extended by every fragment in this application. This class provides
  * dependency injection configuration, ButterKnife Android library configuration and some methods
  * common to every fragment.
@@ -73,22 +72,30 @@ public abstract class BaseFragment extends Fragment {
 
     /**
      * Every fragment has to inflate a layout in the onCreateView method. We have added this method to
-     * avoid duplicate all the inflate code in every fragment. You only have to return the layout to
+     * avoid duplicate all the inflate code in every fragment. we only have to return the layout to
      * inflate in this method when extends BaseFragment.
      */
     protected abstract int getFragmentLayout();
 
+    /*
+    This method is used to set up tool bar in each fragment
+     */
     protected abstract void setUpToolBar();
 
+    /*
+    This method is used to set up views in each fragment
+     */
     protected abstract void setUpView();
 
+    /*
+    This method is used to initialize network calls in each fragment
+     */
     protected abstract void initiateNetworkRequest();
 
+    /*
+    This method is used to perform action on Back Button Press in each fragment
+     */
     protected abstract void onBackPressed();
-    public void showErrorMessage(String serverErrorMessage) {
-
-        Utils.showErrorDailog(getActivity(), serverErrorMessage , getResources().getString(R.string.error));
-    }
 
     /**
      * Replace every field annotated with ButterKnife annotations like @InjectView with the proper

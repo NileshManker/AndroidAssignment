@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
-
 import com.demo.nilesh.androidassignment.R;
 import com.demo.nilesh.androidassignment.ui.fragments.HomeFragment;
 import com.demo.nilesh.androidassignment.ui.fragments.SplashFragment;
@@ -27,14 +26,14 @@ public class Utils {
         SLIDE_LEFT, SLIDE_RIGHT, SLIDE_UP, SLIDE_DOWN, FADE_IN, SLIDE_IN_SLIDE_OUT, FADE_OUT
     }
 
-    /**
-     * @param container_id de
-     * @param fragment
-     * @param activity
-     * @param TAG
-     * @param transitionStyle
+    /* This method is used to switch fragments with animation
+     * @param containerID : Layout View id where fragment is getting load
+     * @param fragment : Fragment Need to load
+     * @param activity : Activity Context
+     * @param TAG : To Load fragment by Tag
+     * @param transitionStyle : Animation Type (SLIDE_DOWN, SLIDE_UP, SLIDE_LEFT, SLIDE_RIGHT)
      */
-    public static void switchFragmentWithAnimation(int container_id, Fragment fragment,
+    public static void switchFragmentWithAnimation(int containerID, Fragment fragment,
                                                    FragmentActivity activity, String TAG, AnimationType transitionStyle) {
 
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
@@ -73,27 +72,24 @@ public class Utils {
             }
         }
         CURRENT_TAG = TAG;
-        fragmentTransaction.replace(container_id, fragment);
+        fragmentTransaction.replace(containerID, fragment);
         fragmentTransaction.addToBackStack(TAG);
         fragmentTransaction.commit();
     }
 
-    /**
-     * @param containerID
-     * @param FRAG_TAG
-     * @param baseActivity
-     * @param transitionStyle
+    /* This method is used to replace the fragment and load new fragment
+     * @param containerID : Layout View id where fragment is getting load
+     * @param activity : Activity Context
+     * @param TAG : To Load fragment by Tag
+     * @param transitionStyle : Animation Type (SLIDE_DOWN, SLIDE_UP, SLIDE_LEFT, SLIDE_RIGHT)
      */
-    public static void reuseFragmentWIthAnimation(int containerID, String FRAG_TAG,
-                                                  FragmentActivity baseActivity, AnimationType transitionStyle) {
-
+    public static void replaceFragmentWIthAnimation(int containerID, String FRAG_TAG,
+                                                  FragmentActivity activity, AnimationType transitionStyle) {
         Fragment fragmentToReplace = null;
-
-        FragmentManager fragmentManager = baseActivity
+        FragmentManager fragmentManager = activity
                 .getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         if (CURRENT_TAG == null || !FRAG_TAG.equals(CURRENT_TAG)) {
-
             if (transitionStyle != null) {
                 switch (transitionStyle) {
                     case SLIDE_DOWN:
@@ -120,12 +116,9 @@ public class Utils {
                         break;
                 }
             }
-
-            // Try to find the fragment we are switching to
             Fragment fragment = fragmentManager.findFragmentByTag(FRAG_TAG);
 
-            // If the new fragment can't be found in the manager, create a new
-            // one
+            // If the new fragment can't be found in the manager, create a new one
             if (fragment == null) {
                 if (FRAG_TAG.equals(HOME)) {
                     fragmentToReplace = new HomeFragment();
@@ -140,16 +133,18 @@ public class Utils {
                     fragmentToReplace = (SplashFragment) fragment;
                 }
             }
-
             CURRENT_TAG = FRAG_TAG;
-
-            // Replace our current fragment with the one we are changing to
             transaction.replace(containerID, fragmentToReplace, FRAG_TAG);
             transaction.commit();
-
         }
     }
 
+  /*
+   * This method is used to display Error Dialogue
+   * @param activityContext : Activity Context to create dialogue
+   * @param responseMessage : Message to be displayed in dialogue
+   * #param errorTitle : Error dialogue title
+   */
     public static Dialog showErrorDailog(FragmentActivity activityContext, String responseMessage , String errorTitle) {
         final Dialog showErrorDialog = new Dialog(activityContext);
         showErrorDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -169,7 +164,11 @@ public class Utils {
         showErrorDialog.show();
         return showErrorDialog;
     }
-
+    /*
+   * This method is used to display Alert dialogue when back button pressed
+   * @param activityContext : Activity Context to create dialogue
+   * @param dilogCallBack : Dialogue Callback Interface
+   */
     public static void showBackButtonAlert(FragmentActivity activityContext, final IDilogCallBack dilogCallBack) {
         final Dialog showBackAlertDialog = new Dialog(activityContext);
         showBackAlertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
