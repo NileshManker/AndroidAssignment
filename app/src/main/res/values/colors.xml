@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="indicator_unselected">#4D000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGreyLight">#787878</color>
     <color name="yellow">#FFFF00</color>
     <color name="fuchsia">#FF00FF</color>
     <color name="red">#FF0000</color>
@@ -40,5 +41,5 @@
     <color name="otp_keyboard_text">#37474f</color>
     <color name="otp_keyboard_background">#1f000000</color>
     <color name="light_yelllow_text">#f5ad4d</color>
-    <color name="light_gray_text">#787878</color>
+
 </resources>
