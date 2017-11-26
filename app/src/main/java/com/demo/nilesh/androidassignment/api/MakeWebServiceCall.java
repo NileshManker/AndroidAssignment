@@ -2,6 +2,7 @@ package com.demo.nilesh.androidassignment.api;
 
 import com.demo.nilesh.androidassignment.beans.ListItemObj;
 import com.demo.nilesh.androidassignment.beans.ListItemRowObj;
+import com.demo.nilesh.androidassignment.utility.DataRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,8 @@ public class MakeWebServiceCall {
             @Override
             public void onResponse(Call<ListItemObj> call, Response<ListItemObj> response) {
                 ListItemObj listItemObj = response.body();
-                networkCallback.onSuccess(listItemObj);
+                DataRepository.getInstance().storeDataToCache(listItemObj);
+                networkCallback.onSuccess();
             }
 
             @Override

@@ -1,55 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="300dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
-    android:background="@color/colorWhite">
+    android:padding="@dimen/margin_30">
 
     <TextView
         android:id="@+id/error_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_10"
         android:gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
+        android:paddingLeft="@dimen/margin_40"
+        android:paddingRight="@dimen/margin_40"
         android:text="@string/sorry"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-    />
+        android:textSize="@dimen/fontSize_20"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/error_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/error_header"
+        android:layout_marginTop="@dimen/margin_16"
         android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:lineSpacingExtra="5dp"
-        android:textSize="16sp"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-     />
+        android:lineSpacingExtra="@dimen/margin_5"
+        android:paddingLeft="@dimen/margin_40"
+        android:paddingRight="@dimen/margin_40"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/fontSize_16" />
 
     <Button
         android:id="@+id/btn_ok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
         android:layout_below="@+id/error_message"
-        android:background="@android:color/transparent"
+        android:layout_gravity="center"
         android:layout_margin="@dimen/margin_16"
+        android:background="@android:color/transparent"
         android:gravity="center_horizontal"
+        android:padding="@dimen/margin_20"
         android:text="@string/ok"
-        android:textSize="16sp"
         android:textColor="@color/cyan_color"
-     />
+        android:textSize="@dimen/fontSize_16" />
 
 </RelativeLayout>
 

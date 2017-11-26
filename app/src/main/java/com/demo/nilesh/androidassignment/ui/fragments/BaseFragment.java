@@ -86,7 +86,7 @@ public abstract class BaseFragment extends Fragment {
      */
     protected void setUpToolBar() {
 
-    };
+    }
 
     /**
      * This method is used to set up views in each fragment
@@ -95,7 +95,7 @@ public abstract class BaseFragment extends Fragment {
      */
     protected void setUpView() {
 
-    };
+    }
 
     /**
      * This method is used to initialize network calls in each fragment
@@ -104,7 +104,7 @@ public abstract class BaseFragment extends Fragment {
      */
     protected void initiateNetworkRequest() {
 
-    };
+    }
 
     /**
      * This method is used to perform action on Back Button Press in each fragment
@@ -113,7 +113,7 @@ public abstract class BaseFragment extends Fragment {
      */
     protected void onBackPressed() {
 
-    };
+    }
 
     /**
      * Replace every field annotated with ButterKnife annotations like @InjectView with the proper

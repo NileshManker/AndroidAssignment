@@ -5,4 +5,9 @@
     <dimen name="fontSize_20">20sp</dimen>
     <dimen name="fontSize_24">24sp</dimen>
     <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="fontSize_16">16sp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
 </resources>

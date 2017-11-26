@@ -12,10 +12,9 @@ public interface NetworkCallback {
     /**
      * This method is used to get api success response
      *
-     * @param listItemObj : API service response Object
      * @author : Nilesh
      */
-    void onSuccess(ListItemObj listItemObj);
+    void onSuccess();
 
     /**
      * This method is used to get api failure response

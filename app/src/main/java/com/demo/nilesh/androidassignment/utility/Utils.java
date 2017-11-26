@@ -139,9 +139,9 @@ public class Utils {
                 }
             } else {
                 if (FRAG_TAG.equals(HOME)) {
-                    fragmentToReplace = (HomeFragment) fragment;
+                    fragmentToReplace = fragment;
                 } else if (FRAG_TAG.equals(SPLASH)) {
-                    fragmentToReplace = (SplashFragment) fragment;
+                    fragmentToReplace = fragment;
                 }
             }
             CURRENT_TAG = FRAG_TAG;
@@ -161,8 +161,7 @@ public class Utils {
     public static Dialog showErrorDailog(FragmentActivity activityContext, String responseMessage, String errorTitle) {
         final Dialog showErrorDialog = new Dialog(activityContext);
         showErrorDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        showErrorDialog.getWindow()
-                .getAttributes().windowAnimations = R.style.DialogAnimation;
+        showErrorDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         showErrorDialog.getWindow().setGravity(Gravity.CENTER);
         showErrorDialog.setContentView(R.layout.error_dialog);
         ((TextView) showErrorDialog.findViewById(R.id.error_header)).setText(errorTitle);
@@ -188,11 +187,10 @@ public class Utils {
     public static void showBackButtonAlert(FragmentActivity activityContext, final IDilogCallBack dilogCallBack) {
         final Dialog showBackAlertDialog = new Dialog(activityContext);
         showBackAlertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        showBackAlertDialog.getWindow()
-                .getAttributes().windowAnimations = R.style.DialogAnimation;
+        showBackAlertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         showBackAlertDialog.getWindow().setGravity(Gravity.CENTER);
         showBackAlertDialog.setContentView(R.layout.back_button_error_dialog);
-        TextView tvErrorMessage = (TextView) showBackAlertDialog.findViewById(R.id.alert_message);
+        TextView tvErrorMessage = showBackAlertDialog.findViewById(R.id.alert_message);
         tvErrorMessage.setText(activityContext.getResources().getString(R.string.back_message));
 
         showBackAlertDialog.findViewById(R.id.btn_yes).setOnClickListener(new View.OnClickListener() {
@@ -220,8 +218,7 @@ public class Utils {
      * @author nilesh
      */
     public static boolean isNetworkAvailable(FragmentActivity activity) {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }

@@ -2,6 +2,7 @@ package com.demo.nilesh.androidassignment.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.demo.nilesh.androidassignment.R;
 import com.demo.nilesh.androidassignment.beans.ListItemRowObj;
+import com.demo.nilesh.androidassignment.utility.DataRepository;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -32,15 +34,19 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
 
         public ListItemViewHolder(View v) {
             super(v);
-            tv_listItemRowTitle = (TextView) v.findViewById(R.id.tv_rowTitle);
-            tv_listItemRowDescription = (TextView) v.findViewById(R.id.tv_rowDescription);
-            iv_listItemRowImage = (ImageView) v.findViewById(R.id.iv_rowImage);
+            tv_listItemRowTitle = v.findViewById(R.id.tv_rowTitle);
+            tv_listItemRowDescription = v.findViewById(R.id.tv_rowDescription);
+            iv_listItemRowImage = v.findViewById(R.id.iv_rowImage);
         }
     }
 
-    public ListItemAdapter(List<ListItemRowObj> listItems, Context context) {
-        this.listItems = listItems;
+    public ListItemAdapter(Context context) {
         this.context = context;
+    }
+
+    public List<ListItemRowObj> updateListItems() {
+        listItems = DataRepository.getInstance().getStoredDataInCache();
+        return listItems;
     }
 
     @Override
