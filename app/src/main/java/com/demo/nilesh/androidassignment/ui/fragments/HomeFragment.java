@@ -100,8 +100,12 @@ public class HomeFragment extends BaseFragment implements NetworkCallback {
                         @Override
                         public void onSuccess() {
                             mPullToRefresh.setRefreshing(false);
-                            listItemAdapter.updateListItems();
-                            listItemAdapter.notifyDataSetChanged();
+                            if(listItemAdapter!=null){
+                                listItemAdapter.updateListItems();
+                                listItemAdapter.notifyDataSetChanged();
+                            }else{
+                                displayDatInRecyclerView();
+                            }
                         }
 
                         @Override

@@ -21,7 +21,7 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
@@ -37,31 +37,12 @@ public class HomeActivityTest {
         // The recommended way to handle such scenarios is to use Espresso idling resources:
         // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
         try {
-            Thread.sleep(30000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        ViewInteraction frameLayout = onView(
-                allOf(withId(R.id.frag_container),
-                        childAtPosition(
-                                allOf(withId(android.R.id.content),
-                                        childAtPosition(
-                                                withId(R.id.action_bar_root),
-                                                0)),
-                                0),
-                        isDisplayed()));
-        frameLayout.check(matches(isDisplayed()));
-
-        ViewInteraction viewGroup = onView(
-                allOf(withId(R.id.toolbar),
-                        childAtPosition(
-                                allOf(withId(R.id.frag_container),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                1),
-                        isDisplayed()));
+        ViewInteraction viewGroup =  onView(withText("Android Assignment")).check(matches(isDisplayed()));
         viewGroup.check(matches(isDisplayed()));
     }
 
