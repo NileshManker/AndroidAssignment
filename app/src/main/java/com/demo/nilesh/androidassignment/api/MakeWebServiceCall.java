@@ -45,8 +45,12 @@ public class MakeWebServiceCall {
             @Override
             public void onResponse(Call<ListItemObj> call, Response<ListItemObj> response) {
                 ListItemObj listItemObj = response.body();
-                DataRepository.getInstance().storeDataToCache(listItemObj);
-                networkCallback.onSuccess();
+                if (listItemObj!=null) {
+                    DataRepository.getInstance().storeDataToCache(listItemObj);
+                    networkCallback.onSuccess();
+                }else {
+                    networkCallback.onFailure();
+                }
             }
 
             @Override
