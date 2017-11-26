@@ -74,34 +74,44 @@ public abstract class BaseFragment extends Fragment {
      * Every fragment has to inflate a layout in the onCreateView method. We have added this method to
      * avoid duplicate all the inflate code in every fragment. we only have to return the layout to
      * inflate in this method when extends BaseFragment.
+     *
+     * @author nilesh
      */
     protected abstract int getFragmentLayout();
 
-    /*
-    This method is used to set up tool bar in each fragment
+    /**
+     * This method is used to set up tool bar in each fragment
+     *
+     * @author nilesh
      */
-    protected void setUpToolBar(){
+    protected void setUpToolBar() {
 
     };
 
-    /*
-    This method is used to set up views in each fragment
+    /**
+     * This method is used to set up views in each fragment
+     *
+     * @author nilesh
      */
-    protected void setUpView(){
+    protected void setUpView() {
 
     };
 
-    /*
-    This method is used to initialize network calls in each fragment
+    /**
+     * This method is used to initialize network calls in each fragment
+     *
+     * @author nilesh
      */
-    protected void initiateNetworkRequest(){
+    protected void initiateNetworkRequest() {
 
     };
 
-    /*
-    This method is used to perform action on Back Button Press in each fragment
+    /**
+     * This method is used to perform action on Back Button Press in each fragment
+     *
+     * @author nilesh
      */
-    protected void onBackPressed(){
+    protected void onBackPressed() {
 
     };
 
@@ -110,6 +120,7 @@ public abstract class BaseFragment extends Fragment {
      * value.
      *
      * @param view to extract each widget injected in the fragment.
+     * @author nilesh
      */
     private void injectViews(final View view) {
 

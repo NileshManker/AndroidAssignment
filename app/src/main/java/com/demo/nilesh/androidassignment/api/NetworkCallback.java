@@ -9,17 +9,18 @@ import com.demo.nilesh.androidassignment.beans.ListItemObj;
 
 public interface NetworkCallback {
 
-    /*
-    * This method is used to get api success response
-    * @auther : Nilesh
-    * @param listItemObj : API service response Object
-    */
-   void onSuccess(ListItemObj listItemObj);
+    /**
+     * This method is used to get api success response
+     *
+     * @param listItemObj : API service response Object
+     * @author : Nilesh
+     */
+    void onSuccess(ListItemObj listItemObj);
 
-    /*
-    * This method is used to get api failure response
-    * @auther : Nilesh
-    * @param failureMessage : API service failure response
-    */
-   void onFailure(String failureMessage);
+    /**
+     * This method is used to get api failure response
+     *
+     * @author : Nilesh
+     */
+    void onFailure();
 }

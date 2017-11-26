@@ -1,13 +1,15 @@
 <resources>
-    <string name="app_name">AndroidAssignment</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Android Assignment</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="sorry_request">Sorry, your request did not register, please try again later</string>
+    <string name="sorry_request">Sorry, your request did\'dt complete, please try again later</string>
     <string name="sorry">Sorry</string>
     <string name="ok">OK</string>
     <string name="error">Error</string>
-    <string name="back_message"> By going back your information will not be saved. Are you sure you want to go back?</string>
+    <string name="back_message"> By going back app will close. Are you sure you want to go close?</string>
     <string name="cancel"> Cancel</string>
     <string name="confirm">Confirm</string>
+    <string name="no_network_available_message">Your Device is offline, please check Internet Connection</string>
+    <string name="no_network_available_title">Device Offline</string>
+    <string name="please_try_again_message">Your request can\'t be completed this moment, please try again later</string>
+    <string name="please_try_again_title">Error</string>
 </resources>

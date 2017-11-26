@@ -26,10 +26,10 @@ public class MakeWebServiceCall {
         this.networkCallback = networkCallback;
     }
 
-    /*
-    * @auther nilesh
-    * This method is used to initiate api call using retrofit
-    */
+    /**
+     * @author nilesh
+     * This method is used to initiate api call using retrofit
+     */
     public void intiateAPICall() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(APIClient.BASE_URL)
@@ -49,7 +49,7 @@ public class MakeWebServiceCall {
 
             @Override
             public void onFailure(Call<ListItemObj> call, Throwable t) {
-                networkCallback.onFailure(t.toString());
+                networkCallback.onFailure();
             }
         });
     }
