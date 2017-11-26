@@ -15,6 +15,7 @@ import com.demo.nilesh.androidassignment.ui.fragments.SplashFragment;
 
 /**
  * Created by nilesh on 24/11/17.
+ * This Class is created for creating generic stuffs.
  */
 
 public class Utils {
@@ -27,6 +28,7 @@ public class Utils {
     }
 
     /* This method is used to switch fragments with animation
+     * @auther nilesh
      * @param containerID : Layout View id where fragment is getting load
      * @param fragment : Fragment Need to load
      * @param activity : Activity Context
@@ -78,6 +80,7 @@ public class Utils {
     }
 
     /* This method is used to replace the fragment and load new fragment
+     * @auther nilesh
      * @param containerID : Layout View id where fragment is getting load
      * @param activity : Activity Context
      * @param TAG : To Load fragment by Tag
@@ -141,6 +144,7 @@ public class Utils {
 
   /*
    * This method is used to display Error Dialogue
+   * @auther nilesh
    * @param activityContext : Activity Context to create dialogue
    * @param responseMessage : Message to be displayed in dialogue
    * #param errorTitle : Error dialogue title
@@ -166,6 +170,7 @@ public class Utils {
     }
     /*
    * This method is used to display Alert dialogue when back button pressed
+   * @author nilesh
    * @param activityContext : Activity Context to create dialogue
    * @param dilogCallBack : Dialogue Callback Interface
    */

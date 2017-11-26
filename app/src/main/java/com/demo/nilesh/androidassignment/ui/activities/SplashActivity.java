@@ -9,6 +9,7 @@ import com.demo.nilesh.androidassignment.utility.Utils;
 
 /**
  * Created by nilesh on 23/11/17.
+ * This is the landing activity in the app
  */
 
 public class SplashActivity extends AppCompatActivity {

@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Created by nilesh on 23/11/17.
+ * This Class is used to store api service response object
  */
 
 public class ListItemObj {

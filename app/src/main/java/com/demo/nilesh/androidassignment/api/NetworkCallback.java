@@ -2,18 +2,24 @@ package com.demo.nilesh.androidassignment.api;
 
 import com.demo.nilesh.androidassignment.beans.ListItemObj;
 
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.http.GET;
-
 /**
  * Created by nilesh on 23/11/17.
+ * This interface is created to handle service response.
  */
 
 public interface NetworkCallback {
 
-    public void onSuccess(ListItemObj listItemObj);
+    /*
+    * This method is used to get api success response
+    * @auther : Nilesh
+    * @param listItemObj : API service response Object
+    */
+   void onSuccess(ListItemObj listItemObj);
 
-    public void onFailure(String failureMessage);
+    /*
+    * This method is used to get api failure response
+    * @auther : Nilesh
+    * @param failureMessage : API service failure response
+    */
+   void onFailure(String failureMessage);
 }

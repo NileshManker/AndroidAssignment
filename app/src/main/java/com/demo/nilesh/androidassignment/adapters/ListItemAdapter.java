@@ -1,7 +1,6 @@
 package com.demo.nilesh.androidassignment.adapters;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.demo.nilesh.androidassignment.R;
-import com.demo.nilesh.androidassignment.beans.ListItemObj;
 import com.demo.nilesh.androidassignment.beans.ListItemRowObj;
 import com.squareup.picasso.Picasso;
 
@@ -18,12 +16,12 @@ import java.util.List;
 
 /**
  * Created by nilesh on 23/11/17.
+ * This Adapter is used to dislpay API responce in Recycler View
  */
 
 public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListItemViewHolder> {
 
     private List<ListItemRowObj> listItems;
-    private int rowLayout;
     private Context context;
 
     public static class ListItemViewHolder extends RecyclerView.ViewHolder {
@@ -32,14 +30,11 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
         TextView tv_listItemRowDescription;
         ImageView iv_listItemRowImage;
 
-
         public ListItemViewHolder(View v) {
             super(v);
-
             tv_listItemRowTitle = (TextView) v.findViewById(R.id.tv_rowTitle);
             tv_listItemRowDescription = (TextView) v.findViewById(R.id.tv_rowDescription);
             iv_listItemRowImage = (ImageView) v.findViewById(R.id.iv_rowImage);
-
         }
     }
 
@@ -49,12 +44,10 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
     }
 
     @Override
-    public ListItemAdapter.ListItemViewHolder onCreateViewHolder(ViewGroup parent,
-                                                            int viewType) {
+    public ListItemAdapter.ListItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_row_layout, parent, false);
         return new ListItemViewHolder(view);
     }
-
 
     @Override
     public void onBindViewHolder(ListItemViewHolder holder, final int position) {

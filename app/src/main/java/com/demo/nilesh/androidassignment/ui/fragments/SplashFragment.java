@@ -20,11 +20,6 @@ public class SplashFragment extends BaseFragment{
     }
 
     @Override
-    protected void setUpToolBar() {
-
-    }
-
-    @Override
     protected void setUpView() {
 
         new Handler().postDelayed(new Runnable() {
@@ -33,15 +28,5 @@ public class SplashFragment extends BaseFragment{
                 Utils.replaceFragmentWIthAnimation(R.id.frag_container, Utils.HOME, getActivity(), Utils.AnimationType.SLIDE_LEFT);
             }
         }, SPLASH_TIME_OUT);
-    }
-
-    @Override
-    protected void initiateNetworkRequest() {
-
-    }
-
-    @Override
-    protected void onBackPressed() {
-
     }
 }

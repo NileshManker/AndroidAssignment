@@ -7,6 +7,7 @@ import retrofit2.http.GET;
 
 /**
  * Created by nileshmanker on 26/11/17.
+ * This Interface is used fetch json data.
  */
 
 public interface APIClient {

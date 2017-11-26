@@ -1,13 +1,5 @@
 package com.demo.nilesh.androidassignment.api;
 
-import android.app.Activity;
-import android.content.Context;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
-
-import com.demo.nilesh.androidassignment.adapters.ListItemAdapter;
 import com.demo.nilesh.androidassignment.beans.ListItemObj;
 import com.demo.nilesh.androidassignment.beans.ListItemRowObj;
 
@@ -22,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by nilesh on 23/11/17.
+ * This class is used to make service call and get the response.
  */
 
 public class MakeWebServiceCall {
@@ -33,11 +26,14 @@ public class MakeWebServiceCall {
         this.networkCallback = networkCallback;
     }
 
+    /*
+    * @auther nilesh
+    * This method is used to initiate api call using retrofit
+    */
     public void intiateAPICall() {
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(APIClient.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create()) //Here we are using the GsonConverterFactory to directly convert json data to object
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         APIClient apiClient = retrofit.create(APIClient.class);

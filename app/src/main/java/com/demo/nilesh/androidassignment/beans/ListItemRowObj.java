@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by nileshmanker on 26/11/17.
+ * This Class is used to store individual Row Object
  */
 
 public class ListItemRowObj {
