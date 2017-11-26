@@ -4,24 +4,34 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.demo.nilesh.androidassignment.R;
 import com.demo.nilesh.androidassignment.adapters.ListItemAdapter;
+import com.demo.nilesh.androidassignment.api.MakeWebServiceCall;
+import com.demo.nilesh.androidassignment.api.NetworkCallback;
 import com.demo.nilesh.androidassignment.beans.ListItemObj;
+import com.demo.nilesh.androidassignment.beans.ListItemRowObj;
 import com.demo.nilesh.androidassignment.utility.IDilogCallBack;
 import com.demo.nilesh.androidassignment.utility.Utils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
  * Created by nilesh on 24/11/17.
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements NetworkCallback{
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -29,7 +39,7 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.rv_listItem)
     RecyclerView rv_ListItemView;
 
-    private ArrayList<ListItemObj> listItemobjList = new ArrayList<>();
+    private List<ListItemRowObj> listItemobjList = new ArrayList<>();
 
     @Override
     protected int getFragmentLayout() {
@@ -44,19 +54,12 @@ public class HomeFragment extends BaseFragment {
     @Override
     protected void setUpView() {
 
-        ListItemObj listItemObj = new ListItemObj("My Demo" , "Demo" , "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg");
-        listItemobjList.add(listItemObj);
-
-        rv_ListItemView.setHasFixedSize(true);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        rv_ListItemView.setLayoutManager(mLayoutManager);
-        ListItemAdapter listItemAdapter = new ListItemAdapter(listItemobjList , getActivity());
-        rv_ListItemView.setAdapter(listItemAdapter);
     }
 
     @Override
     protected void initiateNetworkRequest() {
-
+        MakeWebServiceCall makeWebServiceCall = new MakeWebServiceCall(this);
+        makeWebServiceCall.intiateAPICall();
     }
 
     @Override
@@ -68,6 +71,24 @@ public class HomeFragment extends BaseFragment {
                  getActivity().finish();
             }
         });
+
+    }
+
+    @Override
+    public void onSuccess(ListItemObj listItemObj) {
+        //Creating an String array for the ListView
+        listItemobjList = listItemObj.getRows();
+
+        //displaying the string array into listview
+        rv_ListItemView.setHasFixedSize(true);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        rv_ListItemView.setLayoutManager(mLayoutManager);
+        ListItemAdapter listItemAdapter = new ListItemAdapter(listItemobjList , getActivity());
+        rv_ListItemView.setAdapter(listItemAdapter);
+    }
+
+    @Override
+    public void onFailure(String failureMessage) {
 
     }
 }

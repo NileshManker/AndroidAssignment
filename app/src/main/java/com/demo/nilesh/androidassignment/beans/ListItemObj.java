@@ -1,42 +1,39 @@
 package com.demo.nilesh.androidassignment.beans;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 /**
  * Created by nilesh on 23/11/17.
  */
 
 public class ListItemObj {
 
-    private String rowTitle;
-    private String rowDescription;
-    private String rowImageURL;
+    @SerializedName("title")
+    private String title;
 
-    public ListItemObj(String rowTitle, String rowDescription, String rowImageURL) {
-        this.rowTitle = rowTitle;
-        this.rowDescription = rowDescription;
-        this.rowImageURL = rowImageURL;
+    @SerializedName("rows")
+    private List<ListItemRowObj> rows;
+
+    public ListItemObj(String title, List<ListItemRowObj> rows) {
+        this.title = title;
+        this.rows = rows;
     }
 
-    public String getRowTitle() {
-        return rowTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRowTitle(String rowTitle) {
-        this.rowTitle = rowTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getRowDescription() {
-        return rowDescription;
+    public List<ListItemRowObj> getRows() {
+        return rows;
     }
 
-    public void setRowDescription(String rowDescription) {
-        this.rowDescription = rowDescription;
-    }
-
-    public String getRowImageURL() {
-        return rowImageURL;
-    }
-
-    public void setRowImageURL(String rowImageURL) {
-        this.rowImageURL = rowImageURL;
+    public void setRows(List<ListItemRowObj> rows) {
+        this.rows = rows;
     }
 }

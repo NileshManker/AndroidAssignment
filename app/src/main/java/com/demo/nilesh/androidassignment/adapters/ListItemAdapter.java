@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.demo.nilesh.androidassignment.R;
 import com.demo.nilesh.androidassignment.beans.ListItemObj;
+import com.demo.nilesh.androidassignment.beans.ListItemRowObj;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListItemViewHolder> {
 
-    private List<ListItemObj> listItems;
+    private List<ListItemRowObj> listItems;
     private int rowLayout;
     private Context context;
 
@@ -42,7 +43,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
         }
     }
 
-    public ListItemAdapter(List<ListItemObj> listItems, Context context) {
+    public ListItemAdapter(List<ListItemRowObj> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
     }
@@ -57,16 +58,16 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
 
     @Override
     public void onBindViewHolder(ListItemViewHolder holder, final int position) {
-        holder.tv_listItemRowTitle.setText(listItems.get(position).getRowTitle());
-        holder.tv_listItemRowDescription.setText(listItems.get(position).getRowDescription());
+        holder.tv_listItemRowTitle.setText(listItems.get(position).getTitle());
+        holder.tv_listItemRowDescription.setText(listItems.get(position).getDescription());
 
-        if(listItems.get(position).getRowImageURL()==null){
+        if(listItems.get(position).getImageHref()==null){
             Picasso.with(context)
                     .load(R.mipmap.ic_launcher)
                     .into((holder).iv_listItemRowImage);
         }else {
             Picasso.with(context)
-                    .load(listItems.get(position).getRowImageURL().replace("http","https"))
+                    .load(listItems.get(position).getImageHref().replace("http","https"))
                     .into((holder).iv_listItemRowImage);
         }
     }
