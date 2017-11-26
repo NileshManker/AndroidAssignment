@@ -60,10 +60,15 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
         holder.tv_listItemRowTitle.setText(listItems.get(position).getRowTitle());
         holder.tv_listItemRowDescription.setText(listItems.get(position).getRowDescription());
 
-        Picasso.with(context)
-                .load(Uri.parse(listItems.get(position).getRowImageURL()))
-                .into(((ListItemViewHolder) holder).iv_listItemRowImage);
-
+        if(listItems.get(position).getRowImageURL()==null){
+            Picasso.with(context)
+                    .load(R.mipmap.ic_launcher)
+                    .into((holder).iv_listItemRowImage);
+        }else {
+            Picasso.with(context)
+                    .load(listItems.get(position).getRowImageURL().replace("http","https"))
+                    .into((holder).iv_listItemRowImage);
+        }
     }
 
     @Override

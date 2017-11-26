@@ -5,9 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:orientation="vertical"
+    android:orientation="horizontal"
+    android:background="@color/colorGray"
+    android:weightSum="10"
     android:padding="@dimen/margin_16">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="9"
+        android:orientation="vertical">
     <TextView
         android:id="@+id/tv_rowTitle"
         android:layout_width="match_parent"
@@ -16,8 +23,8 @@
         android:padding="@dimen/margin_16"
         android:textStyle="bold"
         android:text="Title"
-        android:textColor="@color/colorBlack"
-        android:textSize="16sp" />
+        android:textColor="@color/colorBlueLight"
+        android:textSize="@dimen/fontSize_24" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,13 +33,15 @@
         android:orientation="horizontal">
 
         <TextView
+            android:padding="@dimen/margin_16"
             android:id="@+id/tv_rowDescription"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight=".3"
-            android:text="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
             android:paddingRight="@dimen/margin_16"
-            android:textColor="@color/colorGreyLight" />
+            android:text="SubTile"
+            android:textSize="@dimen/fontSize_20"
+            android:textColor="@color/colorBlack" />
 
         <ImageView
             android:id="@+id/iv_rowImage"
@@ -42,8 +51,14 @@
             android:layout_centerInParent="true"
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"
-            android:tint="@color/colorAccent" />
+            />
 
     </LinearLayout>
-
+    </LinearLayout>
+    <ImageView
+        android:padding="@dimen/margin_5"
+        android:layout_width="@dimen/margin_30"
+        android:layout_height="@dimen/margin_30"
+        android:layout_weight="1"
+        android:background="@mipmap/ic_right_arrow"/>
 </LinearLayout>
