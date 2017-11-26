@@ -42,7 +42,7 @@ public class HomeActivityTest {
             e.printStackTrace();
         }
 
-        ViewInteraction viewGroup =  onView(withText("Android Assignment")).check(matches(isDisplayed()));
+        ViewInteraction viewGroup =  onView(withText("About Canada")).check(matches(isDisplayed()));
         viewGroup.check(matches(isDisplayed()));
     }
 

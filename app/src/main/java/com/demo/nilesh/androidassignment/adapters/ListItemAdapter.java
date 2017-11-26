@@ -45,7 +45,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
     }
 
     public List<ListItemRowObj> updateListItems() {
-        listItems = DataRepository.getInstance().getStoredDataInCache();
+        listItems = DataRepository.getInstance().getStoredDataInCache().getRows();
         return listItems;
     }
 

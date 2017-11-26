@@ -9,34 +9,47 @@ import java.util.List;
 
 /**
  * Created by nileshmanker on 26/11/17.
- * This class is used to keep cache of data
+ * This class is used to keep data in cache.
  */
 
 public class DataRepository {
     private static DataRepository dataRepositoryInstance;
     private ListItemObj listItemObj;
+
     /**
      * Create private constructor
      */
-    private DataRepository(){
+    private DataRepository() {
 
     }
+
     /**
-     * Create a static method to get instance.
+     * Create a static method to get singleton instance.
      */
-    public static DataRepository getInstance(){
-        if(dataRepositoryInstance == null){
+    public static DataRepository getInstance() {
+        if (dataRepositoryInstance == null) {
             dataRepositoryInstance = new DataRepository();
         }
         return dataRepositoryInstance;
     }
 
-    public void storeDataToCache(ListItemObj listItemObj){
+    /**
+     * This method is used to store data in Cache.
+     *
+     * @param listItemObj : server response need to store
+     * @author nilesh
+     */
+    public void storeDataToCache(ListItemObj listItemObj) {
         this.listItemObj = listItemObj;
     }
 
-    public List<ListItemRowObj> getStoredDataInCache(){
-        List<ListItemRowObj> listItemRowObjs = listItemObj.getRows();
-        return listItemRowObjs;
+    /**
+     * This method is used to fetch stored data in Cache.
+     *
+     * @return listItemObj
+     * @author nilesh
+     */
+    public ListItemObj getStoredDataInCache() {
+        return listItemObj;
     }
 }

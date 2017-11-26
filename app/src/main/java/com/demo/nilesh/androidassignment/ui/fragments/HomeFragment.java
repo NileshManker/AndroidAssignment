@@ -12,6 +12,7 @@ import com.demo.nilesh.androidassignment.api.MakeWebServiceCall;
 import com.demo.nilesh.androidassignment.api.NetworkCallback;
 import com.demo.nilesh.androidassignment.beans.ListItemObj;
 import com.demo.nilesh.androidassignment.beans.ListItemRowObj;
+import com.demo.nilesh.androidassignment.utility.DataRepository;
 import com.demo.nilesh.androidassignment.utility.IDilogCallBack;
 import com.demo.nilesh.androidassignment.utility.Utils;
 
@@ -103,6 +104,7 @@ public class HomeFragment extends BaseFragment implements NetworkCallback {
                             if(listItemAdapter!=null){
                                 listItemAdapter.updateListItems();
                                 listItemAdapter.notifyDataSetChanged();
+                                updateToolBarTitle();
                             }else{
                                 displayDatInRecyclerView();
                             }
@@ -129,6 +131,7 @@ public class HomeFragment extends BaseFragment implements NetworkCallback {
      * */
     private void displayDatInRecyclerView() {
         mPullToRefresh.setRefreshing(false);
+        updateToolBarTitle();
       //displaying the  Row Item List in the Recycler View
         mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -136,5 +139,13 @@ public class HomeFragment extends BaseFragment implements NetworkCallback {
         listItemAdapter = new ListItemAdapter( getActivity());
         listItemAdapter.updateListItems();
         mRecyclerView.setAdapter(listItemAdapter);
+    }
+
+    /**
+     * This method is used to update toolbar title on server response
+     * @author nilesh
+     * */
+    private void updateToolBarTitle() {
+        mToolbar.setTitle(DataRepository.getInstance().getStoredDataInCache().getTitle());
     }
 }
