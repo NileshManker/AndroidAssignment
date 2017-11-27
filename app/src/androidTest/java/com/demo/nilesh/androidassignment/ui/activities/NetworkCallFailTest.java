@@ -1,6 +1,7 @@
 package com.demo.nilesh.androidassignment.ui.activities;
 
 
+import android.os.SystemClock;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -32,11 +33,17 @@ public class NetworkCallFailTest {
     @Rule
     public ActivityTestRule<SplashActivity> mActivityTestRule = new ActivityTestRule<>(SplashActivity.class);
 
+    /**
+     * To Test this make service call should fail , best way to test, update BASE_URL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/"
+     * in APIClient Interface to String BASE_URL = "https://dl.dropboxusercontent.com/s/" and test
+     *
+     * @author nilesh
+     */
+
     @Test
     public void networkCallFailTest() {
-        // Added a sleep statement to match the app's execution delay.
-        // The recommended way to handle such scenarios is to use Espresso idling resources:
-        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
+        // Added a sleep statement to app get launch.
+
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -44,7 +51,7 @@ public class NetworkCallFailTest {
         }
 
         ViewInteraction errorHeaderTextView = onView(
-                allOf(withId(R.id.error_header), withText("Error"),
+                allOf(withId(R.id.error_header), withText(R.string.error),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -54,14 +61,14 @@ public class NetworkCallFailTest {
         errorHeaderTextView.check(matches(isDisplayed()));
 
         ViewInteraction errorDescTextView = onView(
-                allOf(withId(R.id.error_message), withText("Your request can't be completed this moment, please try again later"),
+                allOf(withId(R.id.error_message), withText(R.string.please_try_again_message),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
                                         0),
                                 1),
                         isDisplayed()));
-        errorDescTextView.check(matches(withText("Your request can't be completed this moment, please try again later")));
+        errorDescTextView.check(matches(withText(R.string.please_try_again_message)));
 
         ViewInteraction button = onView(
                 allOf(withId(R.id.btn_ok),

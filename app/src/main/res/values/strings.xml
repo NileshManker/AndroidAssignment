@@ -12,4 +12,5 @@
     <string name="no_network_available_title">Device Offline</string>
     <string name="please_try_again_message">Your request can\'t be completed this moment, please try again later</string>
     <string name="please_try_again_title">Error</string>
+    <string name="aboutCanada">About Canada</string>
 </resources>

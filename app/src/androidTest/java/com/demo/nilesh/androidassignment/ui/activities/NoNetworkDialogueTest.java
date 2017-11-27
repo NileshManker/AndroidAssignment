@@ -1,6 +1,7 @@
 package com.demo.nilesh.androidassignment.ui.activities;
 
 
+import android.os.SystemClock;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -32,36 +33,37 @@ public class NoNetworkDialogueTest {
     @Rule
     public ActivityTestRule<SplashActivity> mActivityTestRule = new ActivityTestRule<>(SplashActivity.class);
 
+    /**
+     * To Test this make sure no network is available, best way to test, put device on airplane mode.
+     *
+     * @author nilesh
+     */
+
     @Test
     public void noNetworkDialogueTest() {
-        // Added a sleep statement to match the app's execution delay.
-        // The recommended way to handle such scenarios is to use Espresso idling resources:
-        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        //Taking delay to ensure app is launched
+        SystemClock.sleep(2000);
 
         ViewInteraction errorHeaderTextView = onView(
-                allOf(withId(R.id.error_header), withText("Device Offline"),
+                allOf(withId(R.id.error_header), withText(R.string.no_network_available_title),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
                                         0),
                                 0),
                         isDisplayed()));
-        errorHeaderTextView.check(matches(withText("Device Offline")));
+        errorHeaderTextView.check(matches(withText(R.string.no_network_available_title)));
 
         ViewInteraction errorDescTextView = onView(
-                allOf(withId(R.id.error_message), withText("Your Device is offline, please check Internet Connection"),
+                allOf(withId(R.id.error_message), withText(R.string.no_network_available_message),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
                                         0),
                                 1),
                         isDisplayed()));
-        errorDescTextView.check(matches(withText("Your Device is offline, please check Internet Connection")));
+        errorDescTextView.check(matches(withText(R.string.no_network_available_message)));
 
         ViewInteraction button = onView(
                 allOf(withId(R.id.btn_ok),
